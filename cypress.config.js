@@ -6,4 +6,6 @@ module.exports = defineConfig({
   },
   fixturesFolder: false,
   video: false,
+  viewportWidth: 1200,
+  viewportHeight: 880
 })
