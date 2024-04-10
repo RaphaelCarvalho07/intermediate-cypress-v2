@@ -43,4 +43,17 @@ Cypress.Commands.add('login', (
     cy.get('[data-testid="user-avatar-content"]').click()
     cy.contains('Sign out').click()
   })
+
+  Cypress.Commands.add('gui_createProject', project => {
+    cy.visit('/projects/new#blank_project')
+    cy.contains('h4', 'Create blank project').should('be.visible')
+
+    cy.get('#project_name').type(project.name)
+    cy.get('#blank-project-pane [data-testid="select-namespace-dropdown"]').click()
+    cy.get('span').find('.gl-new-dropdown-item-content').should('be.visible')
+    // .contains(`${Cypress.env('user_name')}`).click()
+    // cy.contains('.gl-new-dropdown-item-content',`${Cypress.env('user_name')}`).click()
+    cy.contains('Create project').click()
+  })
+  
   
