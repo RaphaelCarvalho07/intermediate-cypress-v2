@@ -50,9 +50,7 @@ Cypress.Commands.add('login', (
 
     cy.get('#project_name').type(project.name)
     cy.get('#blank-project-pane [data-testid="select-namespace-dropdown"]').click()
-    cy.get('span').find('.gl-new-dropdown-item-content').should('be.visible')
-    // .contains(`${Cypress.env('user_name')}`).click()
-    // cy.contains('.gl-new-dropdown-item-content',`${Cypress.env('user_name')}`).click()
+    cy.contains('[data-testid="listbox-item-gid://gitlab/Namespaces::UserNamespace/1"]', `${Cypress.env('user_name')}`).click()
     cy.contains('Create project').click()
   })
   

@@ -7,10 +7,11 @@ describe('Create Project', () => {
     it('successfully', () => {
         const project = {
             name: `project-${faker.string.uuid()}`,
-            // description: faker.string.sentence()
         }
 
         cy.gui_createProject(project)
 
+        cy.url().should('be.equal', `${Cypress.config('baseUrl')}/${Cypress.env('user_name')}/${project.name}`)
+        cy.contains('[data-testid="project-name-content"]', project.name).should('be.visible')
     })
 })
