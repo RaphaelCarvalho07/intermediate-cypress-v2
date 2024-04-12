@@ -25,33 +25,37 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (
-    user = Cypress.env('user_name'),
-    password = Cypress.env('user_password'),
-  ) => {
-    const login = () => {
-      cy.visit('/users/sign_in')
-  
-      cy.get('[data-testid="username-field"]').type(user)
-      cy.get('[data-testid="password-field"]').type(password, { log: false })
-      cy.get('[data-testid="sign-in-button"]').click()
-    }
-  
-    login()
-  })
+  user = Cypress.env('user_name'),
+  password = Cypress.env('user_password'),
+  { cacheSession = true } = {},
+) => {
+  const login = () => {
+    cy.visit('/users/sign_in')
 
-  Cypress.Commands.add('logout', () => {
-    cy.get('[data-testid="user-avatar-content"]').click()
-    cy.contains('Sign out').click()
-  })
+    cy.get('[data-testid="username-field"]').type(user)
+    cy.get('[data-testid="password-field"]').type(password, { log: false })
+    cy.get('[data-testid="sign-in-button"]').click()
+  }
+  const options = {
+    cacheAcrossSpecs: true,
+  }
+ 
+  cacheSession ? cy.session(user, login, options) : login()
 
-  Cypress.Commands.add('gui_createProject', project => {
-    cy.visit('/projects/new#blank_project')
-    cy.contains('h4', 'Create blank project').should('be.visible')
+})
 
-    cy.get('#project_name').type(project.name)
-    cy.get('#blank-project-pane [data-testid="select-namespace-dropdown"]').click()
-    cy.contains('[data-testid="listbox-item-gid://gitlab/Namespaces::UserNamespace/1"]', `${Cypress.env('user_name')}`).click()
-    cy.contains('Create project').click()
-  })
-  
-  
+Cypress.Commands.add('logout', () => {
+  cy.get('[data-testid="user-avatar-content"]').click()
+  cy.contains('Sign out').click()
+})
+
+Cypress.Commands.add('gui_createProject', project => {
+  cy.visit('/projects/new#blank_project')
+  cy.contains('h4', 'Create blank project').should('be.visible')
+
+  cy.get('#project_name').type(project.name)
+  cy.get('#blank-project-pane [data-testid="select-namespace-dropdown"]').click()
+  cy.contains('[data-testid="listbox-item-gid://gitlab/Namespaces::UserNamespace/1"]', `${Cypress.env('user_name')}`).click()
+  cy.contains('Create project').click()
+})
+
