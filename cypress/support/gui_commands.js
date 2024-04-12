@@ -67,3 +67,12 @@ Cypress.Commands.add('gui_createProject', project => {
   cy.contains('Create project').click()
 })
 
+Cypress.Commands.add('gui_createIssue', issue => {
+  cy.visit(`/${Cypress.env('user_name')}/${issue.project.name}/-/issues/new`)
+  cy.contains('h1', 'New Issue').should('be.visible')
+
+  cy.get('[data-testid="issue-title-input-field"]').type(issue.title, { delay: 0 })
+  cy.get('[data-testid="issuable-form-description-field"]').type(issue.description, { delay: 0 })
+  cy.contains('Create issue').click()
+})
+
