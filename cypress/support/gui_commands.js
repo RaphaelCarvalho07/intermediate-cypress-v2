@@ -36,10 +36,18 @@ Cypress.Commands.add('login', (
     cy.get('[data-testid="password-field"]').type(password, { log: false })
     cy.get('[data-testid="sign-in-button"]').click()
   }
+
+  const validate = () => {
+    cy.visit('/')
+    cy.location('pathname', { timeout: 1000 })
+      .should('not.eq', '/users/sign_in')
+  }
+
   const options = {
     cacheAcrossSpecs: true,
+    validate,
   }
- 
+
   cacheSession ? cy.session(user, login, options) : login()
 
 })
