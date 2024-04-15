@@ -4,6 +4,10 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'http://localhost',
   },
+  env: {
+    hideCredentials: true,
+    requestMode: true,
+  },
   fixturesFolder: false,
   video: false,
   viewportWidth: 1200,
