@@ -76,3 +76,11 @@ Cypress.Commands.add('gui_createIssue', issue => {
   cy.contains('Create issue').click()
 })
 
+Cypress.Commands.add('gui_setLabelOnIssue', label => {
+  cy.get('[data-testid="sidebar-labels"]')
+    .find('[data-testid="edit-button"]')
+    .click()
+  cy.contains(label.name).click()
+  cy.get('body').click()
+})
+
