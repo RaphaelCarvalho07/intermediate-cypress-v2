@@ -84,3 +84,8 @@ Cypress.Commands.add('gui_setLabelOnIssue', label => {
   cy.get('body').click()
 })
 
+Cypress.Commands.add('gui_setMilestoneOnIssue', milestone => {
+  cy.get('#milestone-edit').click()
+  cy.contains(milestone.title).click()
+})
+
