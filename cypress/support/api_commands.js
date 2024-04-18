@@ -6,6 +6,7 @@ Cypress.Commands.add('api_createProject', project => {
         url: '/api/v4/projects/',
         body: {
             name: project.name,
+            initialize_with_readme: true
         },
         headers: {
             Authorization: accessToken
