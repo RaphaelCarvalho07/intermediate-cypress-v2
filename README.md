@@ -1,35 +1,40 @@
-# Testes automatizados com Cypress - Intermediário
+# cypress-intermediate-v2
 
-👋 Seja bem-vinda(o)!
+[![main](https://github.com/wlsf82/cy-data-test/actions/workflows/ci.yml/badge.svg)](https://github.com/RaphaelCarvalho07/cypress-basico-v2/actions)
 
-É muito bom tê-la(o) aqui. Tenho certeza que você vai adorar este curso. ❤️
+Sample project for the basic course of the Talking About Testing online school.
 
-## O que você vai aprender
+## Pre-requirements
 
-Durante o curso de testes automatizados com Cypress (intermediário) você vai aprender:
+It is required to have Node.js and npm installed to run this project.
 
-- Como configurar o ambiente local de desenvolvimento
-- Como instalar e configurar o Cypress
-- Como criar testes automatizados de interface gráfica de usuário
-- Como criar testes automatizados de API (com _feedback_ visual no navegador)
-- Como testar APIs que necessitam um _token_ de acesso
-- Como criar testes otimizados e direto-ao-ponto
-- Como salvar a sessão do usuário no navegador para posterior restauração
-- Como validar se a sessão do usuário ainda é válida e como lidar com isso quando a mesma é invalidada
-- Como fazer a limpeza e criação da massa de dados antes do teste começar
-- Como proteger dados sensíveis, tais como senhas e _tokens_ de acesso
-- Como organizar os testes e comandos customizados em diferentes "camadas" (_API, CLI, GUI_)
-- Como estruturar os testes pensando em pré-condições, ações e resultados esperados
-- Como gerar dados aleatórios para uso nos testes automatizados
-- Como habilitar funcionalidades experimentais do Cypress
-- Como executar comandos à nível de sistema operacional
-- E como testar a leitura de arquivos
+> I used versions `v16.20.0` and `8.19.4` of Node.js and npm, respectively. I suggest you use the same or later versions.
 
-## Vamos começar?
+## Techs / Libs
+Cypress  
+Faker
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+## Installation
+
+Run `npm install` (or `npm i` for the short version) to install the dev dependencies.
+
+## Tests
+You can run the tests simulating a desktop or mobile viewport
+
+### Desktop
+Run `npm test` (or `npm t` for the short version) to run the test in headless mode on a desktop viewport.
+
+Or, run `npm run cy:open` to open Cypress in interactive mode on a desktop viewport.
+
+### Mobile
+Run `npm run test:mobile` to run the test in headless mode on a mobile viewport.
+
+Or, run `npm run cy:open:mobile` to open Cypress in interactive mode on a mobile viewport.
+
+## Support this project
+
+If you want to support this project, leave a ⭐.
 
 ___
 
-Este é mais um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
-# intermediate-cypress-v2
+This project was created with 💚 by [Rapha Carvalho](https://www.linkedin.com/in/raphael-carvalho-675147130/).
