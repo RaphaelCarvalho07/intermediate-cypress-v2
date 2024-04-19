@@ -1,6 +1,6 @@
 # cypress-intermediate-v2
 
-[![main](https://github.com/wlsf82/cy-data-test/actions/workflows/ci.yml/badge.svg)](https://github.com/RaphaelCarvalho07/cypress-basico-v2/actions)
+[![main](https://github.com/wlsf82/cy-data-test/actions/workflows/ci.yml/badge.svg)](https://github.com/RaphaelCarvalho07/intermediate-cypress-v2/actions)
 
 Sample project for the basic course of the Talking About Testing online school.
 
